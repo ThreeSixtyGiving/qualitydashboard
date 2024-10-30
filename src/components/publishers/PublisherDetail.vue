@@ -47,7 +47,7 @@
         <div class="dashboard-publisher-result-wrapper__external-buttons align-right">
           <div class="spacer-2"></div>
           <a :href="`https://grantnav.threesixtygiving.org/search?query=*&default_field=*&sort=awardDate+desc&fundingOrganization=${getFunders(this.publisher.files).join('&fundingOrganization=')}`" target="_blank" class="button">See in GrantNav</a>
-          <a :href="`https://insights.threesixtygiving.org/data?funders=${getFunders(this.publisher.files).join('&funders=')}`" target="_blank" class="button">See in Insights</a>
+          <a :href="`https://grantvis.threesixtygiving.org/data?funders=${getFunders(this.publisher.files).join('&funders=')}`" target="_blank" class="button">See in GrantVis</a>
         </div>
       </div>
       <p>The number of grants published by award year for the past 10 years, with the total grants published that were awarded 11 or more years ago.</p>
