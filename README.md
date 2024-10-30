@@ -1,55 +1,38 @@
-# 360Giving Quality Dashboard
+# registry-vue2
 
-![360Giving registry logo](registry/static/images/360-logos/360giving-registry.svg)
-
-The [360Giving Quality Dashboard](http://qualitydashboard.threesixtygiving.org) shows features and quality of data that uses the [360Giving Standard](http://standard.threesixtygiving.org). The list of files is maintained by 360Giving, and this repo contains the source code for the website.
-
-
-Note: This repository is in flux while two projects are seperated. See registry-vue README for Quality Dashboard readme.
-
-Install dependencies:
-
-```bash
-python3 -m venv .ve
-source .ve/bin/activate
-pip install -r requirements_dev.txt
+## Project setup
+```
+npm install
 ```
 
-This project uses pip-tools. To update the requirements files, run:
-
-```bash
-pip-compile requirements.in
-# or
-pip-compile requirements_dev.in
+### Compile theme
+Make sure the git submodule is checked out and the theme is compiled
+```
+cd 360-ds
+npm install
+npm run compile-sass -- --path ../registry-vue/src/assets/styles/
 ```
 
-This project uses PyScss. To update the compile css file, run:
 
-```bash
-pysassc registry/sass/main.scss registry/static/css/theme.css
+### Compiles and hot-reloads for development
+```
+npm run serve
 ```
 
-To run the registry tests:
-```bash
-python -m pytest tests/
+### Compiles and minifies for production
+```
+npm run build
 ```
 
-To run the dashboard tests:
-```bash
-MODE='dashboard' python -m pytest tests_dashboard/
+### Lints and fixes files
+```
+npm run lint
 ```
 
-In order to run the application see the relevant commands below:
+### Customize configuration
+See [Configuration Reference](https://cli.vuejs.org/config/).
 
-**Development**
-```bash
-export FLASK_APP=registry/views.py
-export FLASK_ENV=development
-python -m flask run
-```
+# Registry, Flask, Vue and You
 
-**Server**
-```bash
-export FLASK_APP=registry/views.py
-python -m flask run
-```
+At present the vue application is set to build into the flask application at the default folders in the subdirectory `vue-build`.
+You can run the vue application for development as above (i.e. `npm run serve`), but you can also do a production build into the flask application and run it through flask as per the root `README.md`.
