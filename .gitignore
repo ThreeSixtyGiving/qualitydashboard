@@ -1,16 +1,23 @@
 .DS_Store
-.idea/
-.pytest_cache/
-.ve/
-.vscode/
+node_modules
+/dist
 
-get-pip.py
-*.pyc
 
-chromedriver/
-__pycache__/
-registry/__pycache__/
-tests/__pycache__/
-tests/samples/__pycache__/
+# local env files
+.env.local
+.env.*.local
 
-chromedriver_mac64.zip
+# Log files
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Editor directories and files
+.idea
+.vscode
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?

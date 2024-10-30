@@ -1,8 +1,0 @@
--c requirements.txt
-pytest
-pytest-flask==0.15.1
-selenium
-flake8
-pyscss
-black
-chromedriver-autoinstaller
