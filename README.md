@@ -32,7 +32,27 @@ npm run lint
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
 
-# Registry, Flask, Vue and You
+### Proxying the live api for testing
 
-At present the vue application is set to build into the flask application at the default folders in the subdirectory `vue-build`.
-You can run the vue application for development as above (i.e. `npm run serve`), but you can also do a production build into the flask application and run it through flask as per the root `README.md`.
+For testing purposes you may want to use the live api. A possible approach for this is to use a reverse proxy.
+
+Apache2 Example:
+
+```apache2
+<VirtualHost *:443>
+...
+        SSLProxyEngine on
+        ProxyPass "/datastore" "https://store.data.threesixtygiving.org"
+        ProxyPassReverse "/datastore" "https://store.data.threesixtygiving.org"
+        Header set Access-Control-Allow-Origin "*"
+...
+</VirtualHost>
+```
+
+(requires mod_ssl, mod_proxy, mod_headers)
+
+Then:
+```
+ $ export VUE_APP_DATASTORE_API=https://localhost/datastore/api/dashboard/
+ $ npm run serve
+```
