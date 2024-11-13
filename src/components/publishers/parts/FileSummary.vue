@@ -52,7 +52,12 @@
   </div>
 
   <div class="spacer-3"></div>
-  <div v-if="!file.datagetter_data.downloads"><p>The file "{{ file.title }}" could not be downloaded. The last download attempt was made on the {{ (new Date(file.datagetter_data.datetime_downloaded)).toUTCString().substr(4) }}.</p></div>
+  <div v-if="!file.datagetter_data.downloads"><p><strong>Note: </strong>file "{{ file.title }}" could not be downloaded.</p></div>
+  <div><p>Last downloaded {{ new Date(file.datagetter_data.datetime_downloaded).toDateString() }}.</p>
+    <p v-if="(new Date(file.datagetter_data.datetime_downloaded).getTime() + (25 * 60 * 60 * 1000)) < Date.now() ">
+    <strong>Note:</strong> Our last attempt to load this file failed. The information shown here is based on the previously accessed version of the file.
+    </p>
+  </div>
   <hr class="separator-light">
 </div>
 </template>
