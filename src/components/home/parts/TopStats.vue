@@ -36,7 +36,7 @@
      <div class="base-card base-card--orange grid__1">
         <div class="base-card__content">
           <h2 v-if="dataDownloaded" class="base-card__title">{{ (stats.recipientIndividuals).toLocaleString() }}</h2>
-          <p class="base-card__text">Recipient Individuals</p>
+          <p class="base-card__text">Grants to Individuals</p>
         </div>
       </div>
 
