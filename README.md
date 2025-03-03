@@ -1,4 +1,4 @@
-# registry-vue2
+# Quality Dashboard
 
 ## Project setup
 ```
