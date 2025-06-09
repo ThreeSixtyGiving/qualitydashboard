@@ -17,13 +17,10 @@
                 </div>
                 <p class="footer__tagline">Open data for more effective grantmaking</p>
             </div>
-            <div class="footer__column-1 footer__social">
-                <a href="https://github.com/ThreeSixtyGiving/insights-ng" class="github-icon"><img
-                        src="@/assets/images/github-logo.svg" alt="Check our Github"></a>
-                <a href="https://twitter.com/360Giving/" class="twitter-icon"><img
-                        src="@/assets/images/twitter-logo.svg"
-                        alt="Follow us on Twitter"></a>
-            </div>
+                <div class="footer__column-1 footer__social">
+                    <a href="https://www.linkedin.com/company/360giving/" class="linkedin-icon"><img src="@/assets/images/linkedin-logo.svg" alt="Find us on LinkedIn"></a>
+                    <a href="https://github.com/threesixtygiving/grantnav" class="github-icon"><img src="@/assets/images/github-logo.svg" alt="Check our Github"></a>
+                </div>
         </div>
 
         <div class="footer__row wrapper">
@@ -66,7 +63,7 @@
         <div class="footer__row wrapper footer__small-print">
 
             <div class="footer__column-2">
-                <p>© Copyright 2021 360Giving.<br>Licensed under a <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank">Creative Commons Attribution 4.0 International License</a>.</p>
+                <p>&copy; Copyright {{current_year}} 360Giving.<br>Licensed under a <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank">Creative Commons Attribution 4.0 International License</a>.</p>
             </div>
             <div class="footer__column-2 footer__policy-links hide-print">
                 <p><a href="https://www.threesixtygiving.org/privacy/">Privacy Notice</a> | <a href="https://www.threesixtygiving.org/terms-conditions/">Terms &amp; Conditions</a> | <a href="https://www.threesixtygiving.org/cookie-policy/">Cookie Policy</a> | <a href="https://www.threesixtygiving.org/take-down-policy/">Take Down Policy</a> | <a href="https://www.threesixtygiving.org/about/360giving-code-conduct/">Code of Conduct</a></p>
@@ -80,5 +77,10 @@
 <script>
 export default {
   name: "BaseFooter",
+  data(){
+    return {
+        current_year: new Date().getUTCFullYear(),
+    }
+  },
 };
 </script>
