@@ -19,8 +19,7 @@
     </div>
     <div class="grid__1 align-right" >
       <template v-if="file.aggregate">
-        <span class="file-summary__label">Total amount &pound;</span>
-        {{ (file.aggregate.currencies.GBP.total_amount).toLocaleString() }}
+        <span class="file-summary__stat">£{{ file.aggregate.currencies.GBP.total_amount|numeral("0.0a")}}</span>
         <span class="file-summary__stat">{{ file.grant_total_shorthand }}</span>
       </template>
     </div>
