@@ -21,6 +21,7 @@ import RadioButtons from "./parts/RadioButtons";
 import BaseSpinner from '../generic/BaseSpinner.vue';
 import BaseModal from './parts/BaseModal';
 import { getPublisherCards, getGrantsCards } from './data/cards';
+import cachedFetch from '../../utils/cachedFetch';
 
 export default {
   name: "DashboardPage",
@@ -45,8 +46,7 @@ export default {
     searchFunction(mode=null) {
       this.dataDownloaded = false;
       const query = mode === null ? '' : [`?mode=${mode}`];
-      fetch(`${process.env.VUE_APP_DATASTORE_API}/overview${query}`)
-        .then((response) => response.json())
+      cachedFetch(`${process.env.VUE_APP_DATASTORE_API}/overview${query}`)
         .then((json) => {
           this.cards = mode === 'publishers' ? getPublisherCards(json) : getGrantsCards(json);
           this.dataDownloaded = true;

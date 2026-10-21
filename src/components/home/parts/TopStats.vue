@@ -52,6 +52,7 @@
 
 <script>
 import BaseSpinner from '../../generic/BaseSpinner'
+import cachedFetch from '../../../utils/cachedFetch';
 
 export default {
   name: "TopStats",
@@ -72,8 +73,7 @@ export default {
     getData() {
       this.dataDownloaded = false;
       const endpoint = this.$router.currentRoute.name === 'publisher' ? `/publisher/${this.$router.currentRoute.params.id}` : `/overview?mode=publishers`;
-      fetch(`${process.env.VUE_APP_DATASTORE_API}${endpoint}`)
-        .then((response) => response.json())
+      cachedFetch(`${process.env.VUE_APP_DATASTORE_API}${endpoint}`)
         .then((json) => {
           this.stats = json.aggregate.total;
           this.dataDownloaded = true

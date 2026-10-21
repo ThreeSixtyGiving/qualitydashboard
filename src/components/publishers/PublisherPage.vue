@@ -36,6 +36,7 @@ import SearchBadgeFilter from './parts/SearchBadgeFilter';
 import SearchSortFilter from './parts/SearchSortFilter';
 import BaseSpinner from '../generic/BaseSpinner'
 import { badges, getBadges } from './data/badges';
+import cachedFetch from '../../utils/cachedFetch';
 
 export default {
   name: "PublisherPage",
@@ -152,8 +153,7 @@ export default {
     this.dataDownloaded = false;
     this.badgeUpdated = false;
     this.publisherUpdated = false;
-    fetch(`${process.env.VUE_APP_DATASTORE_API}/publishers?format=json`)
-      .then((response) => response.json())
+    cachedFetch(`${process.env.VUE_APP_DATASTORE_API}/publishers?format=json`)
       .then((json) => {
         this.publishers = json;
         this.unsortedPublishers = [...this.publishers];
