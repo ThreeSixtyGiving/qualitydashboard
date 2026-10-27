@@ -81,6 +81,7 @@ import FileSummary from './parts/FileSummary.vue';
 import IconBadge from './parts/IconBadge';
 import { getBadges } from './data/badges';
 import getAwardYearsArray from '../generic/awardYears';
+import cachedFetch from '../../utils/cachedFetch';
 
 export default {
   name: "PublisherDetail",
@@ -106,8 +107,7 @@ export default {
     searchFunction(searchTerm = null) {
       this.dataDownloaded = false;
       const query = searchTerm === null ? '' : [`&search=${searchTerm}`].join("&");
-      fetch(`${process.env.VUE_APP_DATASTORE_API}/publisher/${this.id}?format=json${query}`)
-        .then((response) => response.json())
+      cachedFetch(`${process.env.VUE_APP_DATASTORE_API}/publisher/${this.id}?format=json${query}`)
         .then((json) => {
           this.publisher = json;
           this.badges = getBadges(json);
